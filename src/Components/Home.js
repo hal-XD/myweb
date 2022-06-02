@@ -11,6 +11,7 @@ export default function Home() {
                 setJsx(cjsx+1)
             }}>Add a Content.</button>
             <h1>cout: {cjsx}</h1>
+            {([...Array(cjsx)]).map((x)=><p>clicked</p>)}
         </div>
     )
 }
