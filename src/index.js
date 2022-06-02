@@ -1,67 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import './index.css'
+import Header from './Components/Header';
+import SideBar from './Components/SideBar';
+import Home from './Components/Home';
+import Game from './Components/Game';
+import Todo from './Components/Todo';
+import Footer from './Components/Footer';
 
 import { BrowserRouter,Link,Routes,Route } from 'react-router-dom';
 
-class Header extends React.Component {
-  render() {
-    return (
-      <div>
-        <header>My Web Site</header>
-      </div>
-    )
-  }
-}
-
-class Nav extends React.Component {
-  render() {
-    return (
-      <>
-        <nav
-          style={{
-            borderBottom: "solid 1px",
-            paddingBottom: "1rem",
-        }}>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/invoices">Invoices</Link></li>
-            <li><Link to="/expenses">Expenses</Link></li>
-          </ul>
-        </nav>
-      </>
-    )
-  }
-}
-
-function Expenses() {
+function Base(props) {
   return (
-    <main style={{ padding: "1rem 0"}}>
-      <h2>Expenses</h2>
-    </main>
+    <div className='base'>
+      { props.ajsx }
+    </div>
   )
-}
-
-class Base extends React.Component {
-  render() {
-    return (
-        <>
-          <h1>Base</h1>
-        </>
-      );
-  }
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
           <>
+          <Header />
+          <Base ajsx={
           <BrowserRouter>
-            <Header />
-            <Nav></Nav>
+            <SideBar />
             <Routes>
-              <Route path="/" element={<Base />}/>
-              <Route path="/expenses" element={<Expenses />} />
+              <Route path="/" element={<Home />}/>
+              <Route path="/Game" element={<Game />} />
+              <Route path="/todo" element={<Todo />} />
             </Routes>
-          </BrowserRouter>
+          </BrowserRouter>}
+          />
+          <Footer />
         </>
 );
