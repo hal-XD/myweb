@@ -9,17 +9,18 @@ import Game from './Components/Game';
 import Todo from './Components/Todo';
 import Footer from './Components/Footer';
 
-import { BrowserRouter,Link,Routes,Route } from 'react-router-dom';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
 
 function Base(props) {
   return (
-    <div className='base'>
+    <div className='min-h-screen bg-white flex'>
       { props.ajsx }
     </div>
   )
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
           <>
           <Header />
